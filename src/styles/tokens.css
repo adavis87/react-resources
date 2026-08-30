@@ -1,0 +1,124 @@
+/* ---------------------------------------------------------------
+   Design tokens. Light palette is the default on :root; dark is
+   applied for the OS preference (unless the user picked light) and
+   for an explicit data-theme="dark".
+   --------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+
+  --paper: #f3f4f0;
+  --surface: #ffffff;
+  --surface-2: #eaece6;
+  --ink: #1b1f24;
+  --ink-2: #3b414a;
+  --muted: #5a6069;
+  --faint: #8b9199;
+  --rule: #d9dcd6;
+  --rule-strong: #b9beb6;
+
+  --accent: #2447d4;
+  --accent-ink: #1a36a8;
+  --accent-soft: #e3e8fb;
+  --ochre: #b5651d;
+  --ochre-soft: #f6e7d8;
+  --green: #2f7a4f;
+  --green-soft: #dfeee4;
+  --red: #b23a3a;
+  --red-soft: #f6e0e0;
+
+  --code-bg: #eaece6;
+  --code-ink: #1b1f24;
+  --code-keyword: #1a36a8;
+  --code-string: #2f7a4f;
+  --code-tag: #9b3f10;
+  --code-attr: #6b4bb5;
+  --code-comment: #7c8289;
+  --code-function: #0b6b7c;
+  --code-number: #b5651d;
+  --code-punct: #5a6069;
+
+  --font-display: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'IBM Plex Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --measure: 70ch;
+  --sidebar-w: 268px;
+  --radius: 4px;
+  --shadow: 0 1px 2px rgba(27, 31, 36, 0.06), 0 8px 24px -16px rgba(27, 31, 36, 0.25);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+
+    --paper: #121417;
+    --surface: #1a1d21;
+    --surface-2: #22262b;
+    --ink: #e4e6e9;
+    --ink-2: #c5c9ce;
+    --muted: #9aa1aa;
+    --faint: #6d747d;
+    --rule: #2a2f35;
+    --rule-strong: #3d434b;
+
+    --accent: #8b9cff;
+    --accent-ink: #a9b6ff;
+    --accent-soft: #232a4a;
+    --ochre: #e0954d;
+    --ochre-soft: #3a2a1a;
+    --green: #6fc08f;
+    --green-soft: #1d3327;
+    --red: #e08080;
+    --red-soft: #3a2222;
+
+    --code-bg: #0d0f12;
+    --code-ink: #dfe2e6;
+    --code-keyword: #a9b6ff;
+    --code-string: #8fd3a8;
+    --code-tag: #f0a070;
+    --code-attr: #c9b3ff;
+    --code-comment: #7c8289;
+    --code-function: #7fd3e0;
+    --code-number: #e0954d;
+    --code-punct: #9aa1aa;
+
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -16px rgba(0, 0, 0, 0.7);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --paper: #121417;
+  --surface: #1a1d21;
+  --surface-2: #22262b;
+  --ink: #e4e6e9;
+  --ink-2: #c5c9ce;
+  --muted: #9aa1aa;
+  --faint: #6d747d;
+  --rule: #2a2f35;
+  --rule-strong: #3d434b;
+
+  --accent: #8b9cff;
+  --accent-ink: #a9b6ff;
+  --accent-soft: #232a4a;
+  --ochre: #e0954d;
+  --ochre-soft: #3a2a1a;
+  --green: #6fc08f;
+  --green-soft: #1d3327;
+  --red: #e08080;
+  --red-soft: #3a2222;
+
+  --code-bg: #0d0f12;
+  --code-ink: #dfe2e6;
+  --code-keyword: #a9b6ff;
+  --code-string: #8fd3a8;
+  --code-tag: #f0a070;
+  --code-attr: #c9b3ff;
+  --code-comment: #7c8289;
+  --code-function: #7fd3e0;
+  --code-number: #e0954d;
+  --code-punct: #9aa1aa;
+
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -16px rgba(0, 0, 0, 0.7);
+}
