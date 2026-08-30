@@ -6,7 +6,7 @@ A reference site for the React concepts worth knowing cold, and the patterns tha
 
 ## What's inside
 
-**Core concepts** (ordered as a learning path): JSX and elements · Components and props · State with `useState` · The render model · Keys and reconciliation · Events and forms · `useEffect` and the lifecycle · `useRef` · Context · `useReducer` · Memoization · Custom hooks and the rules of hooks · Lifting state and derived state · Error boundaries · Suspense and code splitting · Transitions and concurrent rendering · `use()` and Server Components · Portals · `useSyncExternalStore`
+**Core concepts** (ordered as a learning path): JSX and elements · Components and props · State with `useState` · The render model · Keys and reconciliation · Events and forms · How hooks work · `useEffect` and the lifecycle · `useRef` · When to reach for a ref · Context · `useReducer` · Memoization · Custom hooks and the rules of hooks · Lifting state and derived state · Error boundaries · Suspense and code splitting · Transitions and concurrent rendering · `use()` and Server Components · Portals · `useSyncExternalStore`
 
 **Common patterns**, in two tiers:
 

@@ -3,12 +3,14 @@ import { componentsProps } from './components-props'
 import { context } from './context'
 import { customHooks } from './custom-hooks'
 import { errorBoundaries } from './error-boundaries'
+import { hooksFoundation } from './hooks-foundation'
 import { eventsForms } from './events-forms'
 import { jsx } from './jsx'
 import { keys } from './keys'
 import { liftingState } from './lifting-state'
 import { memoization } from './memoization'
 import { portals } from './portals'
+import { reachingForRefs } from './reaching-for-refs'
 import { renderModel } from './render-model'
 import { state } from './state'
 import { suspense } from './suspense'
@@ -27,8 +29,10 @@ export const concepts: Entry[] = [
   renderModel,
   keys,
   eventsForms,
+  hooksFoundation,
   useEffectEntry,
   useRefEntry,
+  reachingForRefs,
   context,
   useReducerEntry,
   memoization,
