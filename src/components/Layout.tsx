@@ -9,10 +9,11 @@ interface Props {
   query: string
   onQuery: (q: string) => void
   visibleSlugs: Set<string>
+  activeSlug: string | null
   children: ReactNode
 }
 
-export function Layout({ entries, base, query, onQuery, visibleSlugs, children }: Props) {
+export function Layout({ entries, base, query, onQuery, visibleSlugs, activeSlug, children }: Props) {
   const [open, setOpen] = useState(false)
   const location = useLocation()
 
@@ -37,6 +38,7 @@ export function Layout({ entries, base, query, onQuery, visibleSlugs, children }
         query={query}
         onQuery={onQuery}
         visibleSlugs={visibleSlugs}
+        activeSlug={activeSlug}
         open={open}
         onClose={() => setOpen(false)}
       />

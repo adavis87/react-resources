@@ -6,6 +6,7 @@ import { levelLabel } from '../components/LevelChip'
 import { patterns } from '../content/patterns'
 import type { Level } from '../content/types'
 import { matches } from '../lib/search'
+import { useActiveSlug } from '../lib/useActiveSlug'
 import { useScrollToSlug } from '../lib/useScrollToSlug'
 
 const levels: Level[] = ['beginner', 'intermediate', 'advanced']
@@ -22,9 +23,10 @@ export function PatternsPage() {
   const visibleSlugs = useMemo(() => new Set(visible.map((v) => v.slug)), [visible])
 
   useScrollToSlug(slug, true)
+  const activeSlug = useActiveSlug(visible.map((v) => v.slug), slug)
 
   return (
-    <Layout entries={patterns} base="/patterns" query={query} onQuery={setQuery} visibleSlugs={visibleSlugs}>
+    <Layout entries={patterns} base="/patterns" query={query} onQuery={setQuery} visibleSlugs={visibleSlugs} activeSlug={activeSlug}>
       <header className="page-head">
         <span className="eyebrow">Part two</span>
         <h1>Common patterns</h1>

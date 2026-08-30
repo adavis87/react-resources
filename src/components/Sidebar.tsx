@@ -1,4 +1,5 @@
-import { NavLink } from 'react-router-dom'
+import { useEffect, useRef } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import type { Entry } from '../content/types'
 import { ThemeToggle } from './ThemeToggle'
 
@@ -8,12 +9,30 @@ interface Props {
   query: string
   onQuery: (q: string) => void
   visibleSlugs: Set<string>
+  activeSlug: string | null
   open: boolean
   onClose: () => void
 }
 
-export function Sidebar({ entries, base, query, onQuery, visibleSlugs, open, onClose }: Props) {
+export function Sidebar({ entries, base, query, onQuery, visibleSlugs, activeSlug, open, onClose }: Props) {
   const visibleCount = visibleSlugs.size
+  const navRef = useRef<HTMLElement>(null)
+
+  // Keep the active item in view as the page scrolls
+  useEffect(() => {
+    if (!activeSlug || !navRef.current) return
+    const link = navRef.current.querySelector<HTMLElement>(`[data-slug="${activeSlug}"]`)
+    if (!link) return
+    const nav = navRef.current
+    const navRect = nav.getBoundingClientRect()
+    const rect = link.getBoundingClientRect()
+    const margin = 48
+    if (rect.top < navRect.top + margin) {
+      nav.scrollBy({ top: rect.top - navRect.top - margin, behavior: 'smooth' })
+    } else if (rect.bottom > navRect.bottom - margin) {
+      nav.scrollBy({ top: rect.bottom - navRect.bottom + margin, behavior: 'smooth' })
+    }
+  }, [activeSlug])
   const groups = entries.reduce<Map<string, Entry[]>>((acc, e) => {
     const list = acc.get(e.group) ?? []
     list.push(e)
@@ -68,7 +87,7 @@ export function Sidebar({ entries, base, query, onQuery, visibleSlugs, open, onC
         </div>
       </div>
 
-      <nav className="nav" aria-label="Entries">
+      <nav className="nav" aria-label="Entries" ref={navRef}>
         {visibleCount === 0 && <div className="nav__empty">Nothing matches that filter.</div>}
         {[...groups.entries()].map(([group, list]) => {
           const visible = list.filter((e) => visibleSlugs.has(e.slug))
@@ -80,15 +99,17 @@ export function Sidebar({ entries, base, query, onQuery, visibleSlugs, open, onC
               <ul>
                 {visible.map((e) => (
                   <li key={e.slug}>
-                    <NavLink
+                    <Link
                       to={`${base}/${e.slug}`}
-                      className={({ isActive }) =>
-                        [isActive ? 'is-active' : '', e.level === 'advanced' ? 'is-advanced' : ''].join(' ').trim()
-                      }
+                      data-slug={e.slug}
+                      aria-current={activeSlug === e.slug ? 'location' : undefined}
+                      className={[activeSlug === e.slug ? 'is-active' : '', e.level === 'advanced' ? 'is-advanced' : '']
+                        .join(' ')
+                        .trim()}
                       onClick={onClose}
                     >
                       {e.title}
-                    </NavLink>
+                    </Link>
                   </li>
                 ))}
               </ul>

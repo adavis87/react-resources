@@ -9,6 +9,6 @@ export function useScrollToSlug(slug: string | undefined, ready: boolean) {
       return
     }
     const el = document.getElementById(slug)
-    if (el) el.scrollIntoView({ block: 'start' })
+    if (el) el.scrollIntoView({ block: 'start', behavior: 'instant' })
   }, [slug, ready])
 }

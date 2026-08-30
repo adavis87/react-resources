@@ -482,7 +482,7 @@ dd code {
   max-width: var(--measure);
   padding: 56px 0 40px;
   border-bottom: 1px solid var(--rule);
-  scroll-margin-top: 24px;
+  scroll-margin-top: 32px;
   display: flex;
   flex-direction: column;
   gap: 22px;

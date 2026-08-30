@@ -4,6 +4,7 @@ import { EntryArticle } from '../components/Entry'
 import { Layout } from '../components/Layout'
 import { concepts } from '../content/concepts'
 import { matches } from '../lib/search'
+import { useActiveSlug } from '../lib/useActiveSlug'
 import { useScrollToSlug } from '../lib/useScrollToSlug'
 
 export function ConceptsPage() {
@@ -13,9 +14,10 @@ export function ConceptsPage() {
   const visibleSlugs = useMemo(() => new Set(visible.map((v) => v.slug)), [visible])
 
   useScrollToSlug(slug, true)
+  const activeSlug = useActiveSlug(visible.map((v) => v.slug), slug)
 
   return (
-    <Layout entries={concepts} base="/concepts" query={query} onQuery={setQuery} visibleSlugs={visibleSlugs}>
+    <Layout entries={concepts} base="/concepts" query={query} onQuery={setQuery} visibleSlugs={visibleSlugs} activeSlug={activeSlug}>
       <header className="page-head">
         <span className="eyebrow">Part one</span>
         <h1>Core concepts</h1>
