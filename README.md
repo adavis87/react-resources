@@ -11,7 +11,7 @@ A reference site for the React concepts worth knowing cold, and the patterns tha
 **Common patterns**, in two tiers:
 
 - *Beginner / Intermediate* — conditional rendering, stable keys, lifting state up, controlled inputs, composition over inheritance, derived state, reset with `key`, a data-fetching hook, context for prop drilling, container/presentational.
-- *Advanced* — compound components, render props, higher-order components, the state reducer pattern, control props, provider composition, polymorphic components, render isolation, Suspense data fetching, optimistic updates, error boundaries with retry, accessible overlays, form actions, external stores.
+- *Advanced* — compound components, render props, higher-order components, the state reducer pattern, control props, provider composition, polymorphic components, render isolation, virtualization, Suspense data fetching, optimistic updates, error boundaries with retry, accessible overlays, form actions, external stores.
 
 Content targets **React 19** and calls out what changed from 18 where it matters.
 

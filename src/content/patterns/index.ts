@@ -23,6 +23,7 @@ import { resetWithKey } from './reset-with-key'
 import { stableKeys } from './stable-keys'
 import { stateReducer } from './state-reducer'
 import { suspenseDataFetching } from './suspense-data-fetching'
+import { virtualization } from './virtualization'
 
 /** Beginner → intermediate → advanced. */
 export const patterns: Entry[] = [
@@ -48,6 +49,7 @@ export const patterns: Entry[] = [
   polymorphicComponents,
   // Rendering & data (advanced)
   renderIsolation,
+  virtualization,
   suspenseDataFetching,
   optimisticUpdates,
   errorBoundaryWithRetry,
